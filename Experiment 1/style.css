@@ -1,0 +1,275 @@
+:root {
+  --bg: #456882;
+  --card-bg: #ffffff;
+  --muted: #6e7a8a;
+  --radius: 12px;
+  --shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+  --border: #e2e8f0;
+  --accent: #2563eb;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1000px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color: #1f2d3a;
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+h3 { font-size: 1.25rem; }
+
+small {
+  color: var(--muted);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+#stick {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+header {
+  padding: 1rem 0 0.25rem;
+}
+
+#resume_name {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0;
+  color: #111f44;
+}
+
+nav {
+  padding: 0.25rem 0 1rem;
+}
+
+#social_links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+#social_links li {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+#social_links a {
+  text-decoration: none;
+  color: #1f2d3a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#social_links li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -10px rgba(37, 99, 235, 0.3);
+  border-color: var(--accent);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 1.5rem 0;
+}
+
+main {
+  padding-bottom: 3rem;
+}
+
+section {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-card {
+  background: var(--card-bg);
+  padding: 1.6rem 1.8rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid #f0f4f8;
+  transition: var(--transition);
+}
+
+.section-card:hover {
+  transform: translateY(-1px);
+}
+
+#about p,
+#projects p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+#skills ul,
+#certifications ul {
+  list-style: disc;
+}
+
+#skills li,
+#certifications li {
+  margin-bottom: 6px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px -10px rgba(0,0,0,0.05);
+}
+
+caption {
+  text-align: left;
+  padding-bottom: 8px;
+  font-weight: 600;
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: center;
+  border-bottom: 1px solid #e8edf3;
+}
+
+th {
+  background: #f7f9fc;
+  position: sticky;
+  top: 0;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr.table-glow {
+  transition: var(--transition);
+}
+
+tr.table-glow:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.programming-label {
+  font-weight: 600;
+  display: block;
+}
+
+.images-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.image-card {
+  flex: 1 1 250px;
+  max-width: 32%;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.image-card:hover {
+  transform: scale(1.02);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+@media (max-width: 1024px) {
+  h1 { font-size: 2.2rem; }
+  #social_links {
+    gap: 0.5rem;
+  }
+  .image-card {
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  .image-card {
+    max-width: 100%;
+  }
+  #resume_name {
+    font-size: 2rem;
+  }
+}
+
+#copyright{
+    color:black;
+}
+
+#copyright:hover{
+    cursor: default;
+}
