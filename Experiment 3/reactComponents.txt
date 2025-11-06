@@ -1,0 +1,138 @@
+--Easy : Product Card Component:
+import React from "react";
+
+function ProductCard({ name, price, inStock }) {
+  return (
+    <div style={{ border: "1px solid #ccc", padding: 16, width: 200 }}>
+      <h3>{name}</h3>
+      <p>Price: ₹{price}</p>
+      <p style={{ color: inStock ? "green" : "red" }}>
+        {inStock ? "In Stock" : "Out of Stock"}
+      </p>
+    </div>
+  );
+}
+
+export default ProductCard;
+
+<ProductCard name="Laptop" price={55000} inStock={true} />
+
+
+
+==============================================
+
+
+--Medium : Library Management UI:
+import React, { useState } from "react";
+
+function Library() {
+  const [books, setBooks] = useState(["Atomic Habits", "Deep Work"]);
+  const [search, setSearch] = useState("");
+  const [newBook, setNewBook] = useState("");
+
+  const filteredBooks = books.filter((b) =>
+    b.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const addBook = () => {
+    if (newBook.trim()) {
+      setBooks([...books, newBook]);
+      setNewBook("");
+    }
+  };
+
+  const removeBook = (title) => {
+    setBooks(books.filter((b) => b !== title));
+  };
+
+  return (
+    <div style={{ padding: 20 }}>
+      <h2>Library Management</h2>
+
+      <input
+        placeholder="Search books..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <div>
+        <input
+          placeholder="Add a new book..."
+          value={newBook}
+          onChange={(e) => setNewBook(e.target.value)}
+        />
+        <button onClick={addBook}>Add</button>
+      </div>
+
+      <ul>
+        {filteredBooks.map((book) => (
+          <li key={book}>
+            {book}{" "}
+            <button onClick={() => removeBook(book)}>Remove</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default Library;
+
+
+
+=============================================================
+
+
+--Hard : Person ->Student/Teacher Inheritance:
+class Person {
+    protected String name;
+    protected int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void introduce() {
+        System.out.println("Hi, I am " + name + ", age " + age);
+    }
+}
+
+class Student extends Person {
+    private String studentId;
+
+    public Student(String name, int age, String studentId) {
+        super(name, age);
+        this.studentId = studentId;
+    }
+
+    @Override
+    public void introduce() {
+        super.introduce();
+        System.out.println("I am a student. ID: " + studentId);
+    }
+}
+
+class Teacher extends Person {
+    private String subject;
+
+    public Teacher(String name, int age, String subject) {
+        super(name, age);
+        this.subject = subject;
+    }
+
+    @Override
+    public void introduce() {
+        super.introduce();
+        System.out.println("I teach: " + subject);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student("Amit", 19, "S123");
+        Teacher t = new Teacher("Rita", 40, "Maths");
+
+        s.introduce();
+        t.introduce();
+    }
+}
